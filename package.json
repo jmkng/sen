@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A collection of CodeMirror extensions",
   "main": "index.js",
+  "type": "module",
   "keywords": [
     "editor",
     "codemirror"
@@ -14,7 +15,8 @@
     "url": "https://github.com/dvft/editor.git"
   },
   "scripts": {
-    "compile": "tsc"
+    "compile": "tsc",
+    "bundle:demo": "rollup -i src/index.ts -o demo/bundle.js -p @rollup/plugin-typescript -p @rollup/plugin-node-resolve"
   },
   "dependencies": {
     "@codemirror/commands": "^6.2.4",
@@ -24,7 +26,11 @@
     "@codemirror/view": "^6.16.0"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@rollup/plugin-typescript": "^11.1.4",
     "@types/node": "^20.7.0",
+    "rollup": "^3.29.3",
+    "tslib": "^2.6.2",
     "typescript": "^5.2.2"
   }
 }
