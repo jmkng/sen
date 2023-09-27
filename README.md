@@ -1,4 +1,4 @@
-# dvft/editor
+# editor
 
 This package contains reusable Codemirror extensions.
 
