@@ -1,0 +1,30 @@
+{
+  "name": "@dvft/editor",
+  "version": "0.1.0",
+  "description": "A collection of CodeMirror extensions",
+  "main": "index.js",
+  "keywords": [
+    "editor",
+    "codemirror"
+  ],
+  "author": "Jon Koenig",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dvft/editor.git"
+  },
+  "scripts": {
+    "compile": "tsc"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.2.4",
+    "@codemirror/lang-markdown": "^6.2.0",
+    "@codemirror/language": "^6.8.0",
+    "@codemirror/state": "^6.2.1",
+    "@codemirror/view": "^6.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.7.0",
+    "typescript": "^5.2.2"
+  }
+}
