@@ -1,11 +1,30 @@
-import { Extension, Range } from "@codemirror/state";
+import { Range } from "@codemirror/state";
 import { Decoration, DecorationSet, EditorView, ViewPlugin, ViewUpdate } from "@codemirror/view"
 import { syntaxTree } from "@codemirror/language"
+import { StyleSpec } from "style-mod";
 
-export default (styles?: Extension) => [plugin, styles || theme]
+interface BoldOptions {
+  /** 
+   * Override the CSS assigned by the plugin.
+   * 
+   * Example:
+   * { ".cm-bold": { color: "red" } }
+   * 
+   * Default:
+   * { ".cm-bold": { fontWeight: "bold" } }
+   */
+  styles: {
+    ".cm-bold": StyleSpec;
+  }
+}
 
-// #region Theme
-const theme = EditorView.baseTheme({
+// export default (options?: BoldOptions) => [plugin, options || theme]
+export default (options?: BoldOptions) => [
+  plugin,
+  options?.styles ? EditorView.theme(options.styles) : theme
+]
+
+const theme = EditorView.theme({
   ".cm-bold": {
     fontWeight: "bold",
   },
@@ -14,9 +33,7 @@ const theme = EditorView.baseTheme({
 const handles = {
   bold: "cm-bold",
 };
-// #endregion Theme
 
-// #region Implementation
 const plugin = ViewPlugin.fromClass(
   class Bold {
     decorations: DecorationSet;
@@ -64,4 +81,3 @@ const highlight = (view: EditorView): DecorationSet => {
 
   return Decoration.set(widgets, true);
 };
-// #endregion Implementation
