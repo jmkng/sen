@@ -3,26 +3,27 @@ import { Decoration, DecorationSet, EditorView, ViewPlugin, ViewUpdate } from "@
 import { syntaxTree } from "@codemirror/language"
 import { StyleSpec } from "style-mod";
 
+export default (options?: BoldOptions) => [
+  plugin,
+  options?.styles ? EditorView.theme(options.styles) : theme
+]
+
 interface BoldOptions {
   /** 
    * Override the CSS assigned by the plugin.
    * 
    * Example:
-   * { ".cm-bold": { color: "red" } }
    * 
-   * Default:
-   * { ".cm-bold": { fontWeight: "bold" } }
+   * ```
+   * {
+   *   ".cm-bold": { fontWeight: "bold" } 
+   * }
+   * ```
    */
   styles: {
     ".cm-bold": StyleSpec;
   }
 }
-
-// export default (options?: BoldOptions) => [plugin, options || theme]
-export default (options?: BoldOptions) => [
-  plugin,
-  options?.styles ? EditorView.theme(options.styles) : theme
-]
 
 const theme = EditorView.theme({
   ".cm-bold": {
@@ -30,20 +31,18 @@ const theme = EditorView.theme({
   },
 });
 
-const handles = {
-  bold: "cm-bold",
-};
 
 const plugin = ViewPlugin.fromClass(
   class Bold {
     decorations: DecorationSet;
 
     constructor(view: EditorView) {
-      this.decorations = highlight(view);
+      this.decorations = decorateView(view);
     }
 
     update(update: ViewUpdate) {
-      if (update.docChanged || update.viewportChanged || update.selectionSet) this.decorations = highlight(update.view);
+      if (update.docChanged || update.viewportChanged || update.selectionSet)
+        this.decorations = decorateView(update.view);
     }
   },
   {
@@ -51,7 +50,7 @@ const plugin = ViewPlugin.fromClass(
   }
 );
 
-const highlight = (view: EditorView): DecorationSet => {
+const decorateView = (view: EditorView): DecorationSet => {
   const widgets: Range<Decoration>[] = [];
   const ranges = view.state.selection.ranges;
 
@@ -60,6 +59,7 @@ const highlight = (view: EditorView): DecorationSet => {
       enter: ({ type, from, to }) => {
         if (type.name !== "StrongEmphasis") return;
 
+        // Don't apply to any line covered by a selection.
         const line = view.lineBlockAt(from);
         const cursorOverlaps = ranges.some(
           ({ from: rangeFrom, to: rangeTo }) =>
@@ -67,7 +67,7 @@ const highlight = (view: EditorView): DecorationSet => {
         );
         if (cursorOverlaps) return;
 
-        widgets.push(Decoration.mark({ class: handles.bold }).range(from, to));
+        widgets.push(Decoration.mark({ class: "cm-bold" }).range(from, to));
 
         // Hide the "**" marks.
         widgets.push(Decoration.replace({}).range(from, from + 2));

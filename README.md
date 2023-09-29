@@ -4,23 +4,29 @@ Simple, reusable CodeMirror (v6+) extensions.
 
 ## Usage
 
-The extensions are exported as functions that return an array of [Extension](https://codemirror.net/docs/ref/#state.Extension) types. Import the ones that you want, and then execute them within your extensions array:
+The extensions are exported as functions that return an array of extensions that you can apply to your view.
+
+Import the ones that you want, and execute them like this:
 
 ```
-import {EditorView, keymap} from "@codemirror/view"
-import {defaultKeymap} from "@codemirror/commands"
-import {bold} from "@dvft/editor"
+import { EditorView } from "@codemirror/view"
+import { bold, heading } from "@dvft/editor/markdown"
 
-let myView = new EditorView({
-  doc: "hello",
-  extensions: [
-    keymap.of(defaultKeymap),
-    bold()
+let view = new EditorView({
+    // ...
+    extensions: [
+        // ...
+        bold(),                 // "@dvft/editor/markdown/bold"
+        heading()               // "@dvft/editor/markdown/heading"
     ],
-  parent: document.body
+    // ...
 })
 ```
 
+The extensions are designed to be mostly self contained, so you can just copy/paste most of the code into your own project if you don't want a dependency on the package.
+
 ## Demo
 
-To build and view the demo, use `npm run bundle:demo` to generate the `demo/dist/demo.js` bundle. After that, just open the index.html file.
+A demo application that uses most of the plugins is available.
+
+Use `npm run bundle:demo` to generate the `demo/dist/demo.js` bundle. After that, just open the `demo/index.html` file in your browser.

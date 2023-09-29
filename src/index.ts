@@ -1,3 +1,1 @@
-import bold from "./extensions/markdown/bold";
-
-export { bold }
+export * from './extensions/markdown'
