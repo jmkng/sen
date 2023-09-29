@@ -18,7 +18,7 @@ const handles = {
 
 // #region Implementation
 const plugin = ViewPlugin.fromClass(
-  class HideHeaderMarkPlugin {
+  class Bold {
     decorations: DecorationSet;
 
     constructor(view: EditorView) {

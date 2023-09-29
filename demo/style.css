@@ -1,6 +1,27 @@
-body {
-    background: rgb(0, 0, 0);
-    /* color: rgb(138, 146, 157) */
-    color: white;
+* {
+    box-sizing: border-box;
 }
 
+body {
+    background: rgb(0, 0, 0);
+    color: white;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+body > h1 {
+    margin-bottom: 44px;
+}
+
+body > a {
+    margin-top: 44px;
+    color: rgb(138, 146, 157);
+}
+
+#editor {
+    min-width: 500px;
+}
