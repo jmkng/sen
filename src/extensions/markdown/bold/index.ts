@@ -21,7 +21,7 @@ interface BoldOptions {
    * ```
    */
   styles: {
-    ".cm-bold": StyleSpec;
+    ".cm-bold"?: StyleSpec;
   }
 }
 

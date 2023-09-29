@@ -27,13 +27,13 @@ interface HeadingOptions {
      * ````
      */
     styles: {
-        ".cm-heading": StyleSpec;
-        ".cm-heading-1": StyleSpec,
-        ".cm-heading-2": StyleSpec,
-        ".cm-heading-3": StyleSpec,
-        ".cm-heading-4": StyleSpec,
-        ".cm-heading-5": StyleSpec,
-        ".cm-heading-6": StyleSpec,
+        ".cm-heading"?: StyleSpec;
+        ".cm-heading-1"?: StyleSpec,
+        ".cm-heading-2"?: StyleSpec,
+        ".cm-heading-3"?: StyleSpec,
+        ".cm-heading-4"?: StyleSpec,
+        ".cm-heading-5"?: StyleSpec,
+        ".cm-heading-6"?: StyleSpec,
     }
 }
 

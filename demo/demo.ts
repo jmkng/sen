@@ -1,14 +1,16 @@
 import { EditorView, keymap, placeholder, lineNumbers } from "@codemirror/view"
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { defaultKeymap } from "@codemirror/commands"
-import { bold, heading } from '#'
+import { bold, heading, block } from '#'
 
 const bg = "rgb(0, 0, 0)";
 const fg = "rgb(255, 255, 255)";
+const off = "rgb(33, 33, 33)";
 const gray = "rgb(138, 146, 157)";
 const red = "rgb(187, 45, 62)";
 const doc = `Lorem ipsum\n\n## dolor sit amet, consectetur adipiscing elit.\n\n`
-    + `**Nam ac massa augue.** Quisque vitae nunc sed nisi pulvinar pulvinar eget eu tortor. `
+    + `\`\`\`\nconsole.log("Lorem ipsum")\n\`\`\`\n\n**Nam ac massa augue.** Quisque vitae nunc sed `
+    + `nisi pulvinar pulvinar eget eu tortor. `
     + `Quisque risus eros, sodales sit amet odio id, posuere accumsan massa. Vivamus arcu diam, `
     + `auctor sit amet pharetra ac, gravida in urna. Sed faucibus dignissim risus, non sodales `
     + `elit ullamcorper a. Sed a accumsan neque. Vestibulum non sem quis velit faucibus congue `
@@ -35,7 +37,7 @@ const defaults = [
         "&.cm-editor": {
             background: `${bg}`,
             color: `${fg}`,
-            border: "1px solid rgb(33, 33, 33)",
+            border: `1px solid ${off}`,
             borderRadius: "8px",
             minWidth: "700px",
             maxWidth: "800px",
@@ -67,7 +69,8 @@ let _ = new EditorView({
     extensions: [
         ...defaults,
         bold(), // "@dvft/editor/markdown/bold"
-        heading() // "@dvft/editor/markdown/heading"
+        heading(), // "@dvft/editor/markdown/heading"
+        block({ styles: { '.cm-block': { background: `${off}` } } }) // "@dvft/editor/markdown/block"
     ],
     parent: editor // <-- Handles mounting to DOM
 })
