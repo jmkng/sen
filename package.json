@@ -16,21 +16,22 @@
   },
   "scripts": {
     "compile": "tsc",
-    "bundle:demo": "rollup -i src/index.ts -o demo/bundle.js -p @rollup/plugin-typescript -p @rollup/plugin-node-resolve"
+    "bundle:demo": "cd demo && vite build",
+    "bundle:demo:rollup": "rollup -i src/index.ts -o demo/bundle.js -p @rollup/plugin-typescript -p @rollup/plugin-node-resolve"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "^4.4.9",
+    "rollup": "^3.29.3",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@rollup/plugin-typescript": "^11.1.4",
+    "typescript": "^5.2.2",
+    "tslib": "^2.6.2",
+    "@types/node": "^20.7.0",
     "@codemirror/commands": "^6.2.4",
     "@codemirror/lang-markdown": "^6.2.0",
     "@codemirror/language": "^6.8.0",
     "@codemirror/state": "^6.2.1",
     "@codemirror/view": "^6.16.0"
-  },
-  "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.1",
-    "@rollup/plugin-typescript": "^11.1.4",
-    "@types/node": "^20.7.0",
-    "rollup": "^3.29.3",
-    "tslib": "^2.6.2",
-    "typescript": "^5.2.2"
   }
 }

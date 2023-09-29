@@ -12,7 +12,11 @@
     "noImplicitAny": false,
     "types": ["node"],
     "baseUrl": ".",
+    "paths": {
+      "#": ["./src"],
+      "#/*": ["./src/*"],
+    }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "demo/**/*.ts"],
   "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }
