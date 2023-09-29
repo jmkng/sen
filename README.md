@@ -10,7 +10,7 @@ Import the ones that you want, and execute them like this:
 
 ```js
 import { EditorView } from "@codemirror/view";
-import { bold, heading } from "@dvft/editor/markdown";
+import { bold, heading, block } from "@dvft/editor/markdown";
 
 let view = new EditorView({
   // ...
@@ -18,6 +18,7 @@ let view = new EditorView({
     // ...
     bold(), // "@dvft/editor/markdown/bold"
     heading(), // "@dvft/editor/markdown/heading"
+    block(), // "@dvft/editor/markdown/block"
   ],
   // ...
 });
