@@ -29,4 +29,4 @@ The extensions are designed to be mostly self contained, so you can just copy/pa
 
 A demo application that uses most of the plugins is available.
 
-Use `npm run bundle:demo` to generate the `demo/dist/demo.js` bundle. After that, just open the `demo/index.html` file in your browser.
+Use `npm run bundle:demo` or `bundle:demo:-w` to generate the `demo/dist/demo.js` bundle. After that, just open the `demo/index.html` file in your browser.

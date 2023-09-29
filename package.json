@@ -16,7 +16,7 @@
   },
   "scripts": {
     "bundle:demo": "cd demo && vite build",
-    "bundle:watch:demo": "cd demo && vite build --watch"
+    "bundle:demo:-w": "cd demo && vite build -w"
   },
   "devDependencies": {
     "@codemirror/commands": "^6.2.4",

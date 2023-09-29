@@ -62,12 +62,12 @@ const editor = document.getElementById('editor')
 if (!editor)
     throw new Error('dom node with id of `editor` not found');
 
-let view = new EditorView({
+let _ = new EditorView({
     doc,
     extensions: [
         ...defaults,
-        bold(),                 // "@dvft/editor/markdown/bold"
-        heading()               // "@dvft/editor/markdown/heading"
+        bold(), // "@dvft/editor/markdown/bold"
+        heading() // "@dvft/editor/markdown/heading"
     ],
     parent: editor // <-- Handles mounting to DOM
 })
