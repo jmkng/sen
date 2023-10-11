@@ -10,15 +10,15 @@ Import the ones that you want, and execute them like this:
 
 ```js
 import { EditorView } from "@codemirror/view";
-import { bold, heading, block } from "@dvft/editor/markdown";
+import { bold, heading, block } from "@jmkng/sen/markdown";
 
 let view = new EditorView({
   // ...
   extensions: [
     // ...
-    bold(), // "@dvft/editor/markdown/bold"
-    heading(), // "@dvft/editor/markdown/heading"
-    block(), // "@dvft/editor/markdown/block"
+    bold(), // "@jmkng/sen/editor/markdown/bold"
+    heading(), // "@jmkng/sen/markdown/heading"
+    block(), // "@jmkng/sen/markdown/block"
   ],
   // ...
 });

@@ -1,8 +1,9 @@
 {
-  "name": "@dvft/editor",
+  "name": "@jmkng/sen",
   "version": "0.1.0",
   "description": "A collection of CodeMirror extensions",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": ["dist/**"],
   "type": "module",
   "keywords": [
     "editor",
@@ -12,9 +13,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dvft/editor.git"
+    "url": "https://github.com/jmkng/sen.git"
   },
   "scripts": {
+    "bundle": "vite build",
     "bundle:demo": "cd demo && vite build",
     "bundle:demo:-w": "cd demo && vite build -w"
   },
