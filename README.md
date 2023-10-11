@@ -1,4 +1,4 @@
-# @dvft/editor
+# Sen
 
 Simple, reusable CodeMirror (v6+) extensions.
 
